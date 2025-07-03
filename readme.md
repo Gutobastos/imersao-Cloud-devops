@@ -51,6 +51,13 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 
 ---
 
+## Autenticando no Google Cloud
+```sh
+gcloud auth login
+gcloud config set project PROJECT_ID
+gcloud run deploy --port=8000
+```
+
 ## Estrutura do Projeto
 
 - `app.py`: Arquivo principal da aplicação FastAPI.
