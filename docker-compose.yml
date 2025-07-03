@@ -1,0 +1,16 @@
+services:
+  # Serviço da aplicação web
+  web:
+    # Constrói a imagem a partir do Dockerfile no diretório atual (.)
+    build: .
+    # Comando para iniciar o serviço com recarregamento automático (ótimo para desenvolvimento).
+    # O ponto de entrada da sua aplicação é 'app:app' (objeto 'app' no arquivo 'app.py').
+    container_name: api # Nome do container.
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    # Mapeia a porta 8000 do contêiner para a porta 8000 da sua máquina
+    ports:
+      - "8000:8000"
+    # Monta o diretório atual no diretório /app do contêiner para refletir
+    # alterações no código em tempo real, o que é ideal para desenvolvimento.
+    volumes:
+      - .:/app
